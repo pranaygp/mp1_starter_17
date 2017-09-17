@@ -1,0 +1,116 @@
+$white: #fff;
+$black: #000;
+
+$wash: #555;
+$light-wash: #aaa;
+
+$red: #FF785F;
+$green: #47BF70;
+$yellow: #FFD43F;
+$blue: #418DA6;
+
+
+
+body {
+  margin: 0;
+
+  font-family: 'Source Sans Pro', sans-serif;
+
+  h1, h2, h3 {
+    margin: 0px;
+  }
+
+  h1, h2, h3, a, p, span {
+    &.white {
+      color: $white;
+    }
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+nav {
+  width: 100vw;
+  display: block;
+  background-color: $wash;
+  position: fixed;
+  top: 0;
+  ul {
+    float: right;
+    list-style: none;
+    margin: 0;
+    li {
+      float: left;
+      padding: 20px;
+      cursor: pointer;
+      color: $white;
+      background-color: $wash;
+
+      &:hover, &.selected {
+        background-color: $light-wash;
+      }
+  
+    }
+  }
+}
+
+.section {
+  display: block;
+  width: 100vw;
+  margin: 0px;
+  padding: 16px;
+  &.red {
+    background-color: $red;
+  }
+  &.green {
+    background-color: $green;
+  }
+}
+
+.wrapper {
+  margin-top: 58px;
+}
+
+#profile-picture {
+  margin-top: 30px; 
+  width: 150px;
+  border-radius: 75px;
+  border: 1px $white solid;
+}
+
+.caroussel {
+  width: 100%;
+  position: relative;
+  margin: 1em;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  height: 230px;
+
+  #work1 {
+    background: url('assets/facebook.png') no-repeat 200px;
+  }
+  
+  #work2 {
+    background: url('assets/allstate.png') no-repeat 200px;
+  }
+  
+  #work3 {
+    background: url('assets/cs196.png') no-repeat 200px;
+  }
+
+  > div {
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height: 100%;
+
+    position: absolute;
+    top: 400px;
+
+    &.current {
+      top: 0px;
+    }
+  }
+}
