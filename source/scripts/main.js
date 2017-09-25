@@ -30,9 +30,10 @@ window.addEventListener('scroll', e => {
     }
   })
 
-  if ((window.innerHeight + scrollPos) >= (body.offsetHeight + parseInt(nav.style.height))) {
-    currentSection = sections.length-1;
-  }
+  // HARDCODED IF AT END OF PAGE, SELECT THE LAST NAV ITEM
+  // if ((window.innerHeight + scrollPos) >= (body.offsetHeight + parseInt(nav.style.height))) {
+  //   currentSection = sections.length-1;
+  // }
 
   if(currentSection >= 0) {
     navLinks.forEach((node, i) => {
