@@ -28,6 +28,8 @@ window.addEventListener('scroll', e => {
 
   let sectionScrollPositions = Array.prototype.map.call(sections, s => s.offsetTop);
 
+
+
   let currentSection = -1;
   sectionScrollPositions.forEach((s, i) => {
     if((s-parseInt(nav.style.height)) <= scrollPos) {
@@ -36,9 +38,9 @@ window.addEventListener('scroll', e => {
   })
 
   // HARDCODED IF AT END OF PAGE, SELECT THE LAST NAV ITEM
-  // if ((window.innerHeight + scrollPos) >= (body.offsetHeight + parseInt(nav.style.height))) {
-  //   currentSection = sections.length-1;
-  // }
+  if ((window.innerHeight + scrollPos) >= (body.offsetHeight + parseInt(nav.style.height))) {
+    currentSection = sections.length-1;
+  }
 
   if(currentSection >= 0) {
     navLinks.forEach((node, i) => {
