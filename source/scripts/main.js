@@ -26,6 +26,10 @@ window.addEventListener('scroll', e => {
     }
   })
 
+  if ((window.innerHeight + scrollPos) >= (body.offsetHeight + parseInt(nav.style.height))) {
+    currentSection = sections.length-1;
+  }
+
   if(currentSection >= 0) {
     navLinks.forEach((node, i) => {
       node.classList.remove("selected");
