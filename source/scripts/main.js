@@ -75,4 +75,50 @@ function carousselClickHandler(e) {
   }
 }
 
+function navLinksClickHandler(e) {
+  let sectionScrollPositions = Array.prototype.map.call(sections, s => s.offsetTop);
+
+  let selectedSectionIndex = Array.prototype.indexOf.call(e.target.parentElement.querySelectorAll('li'), e.target);
+
+
+  // console.log(sectionScrollPositions[selectedSectionIndex], parseInt(nav.style.height) || 120, nav.style.height)
+
+  scrollTo(document.body, sectionScrollPositions[selectedSectionIndex] - navBarHeightAt(sectionScrollPositions[selectedSectionIndex]), 1000)
+}
+
+function navBarHeightAt(scrollPos) {
+  const progress =  Math.min(scrollPos/(window.innerHeight * 0.5), 1.0);
+  return initialNavHeight - (0.5 * progress * initialNavHeight);
+}
+
+/*********************************************************
+ ** Inspired by https://gist.github.com/andjosh/6764939 **
+ *********************************************************/
+function scrollTo(element, to, duration) {
+  var start = element.scrollTop,
+      change = to - start,
+      currentTime = 0,
+      increment = 20;
+      
+  var animateScroll = function(){
+      if(element.scrollTop === to) return;
+      currentTime += increment;
+      var val = Math.easeInOutQuad(currentTime, start, change, duration);
+      element.scrollTop = val;
+      if(currentTime < duration) {
+          setTimeout(animateScroll, increment);
+      }
+  };
+  animateScroll();
+}
+
+Math.easeInOutQuad = function (t, b, c, d) {
+  t /= d/2;
+  if (t < 1) return c/2*t*t + b;
+  t--;
+  return -c/2 * (t*(t-2) - 1) + b;
+};
+
 carousselControls.forEach(el => el.addEventListener('click', carousselClickHandler))
+
+navLinks.forEach(el => el.addEventListener('click', navLinksClickHandler))
