@@ -6,9 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MP1 Starter</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
+    <div id="overlay">
+        <span id="modal-close">Close Modal</span>
+        <div class="section center">
+            Just more video here :)
+            <video width="80%" autoplay loop>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    </div>
     <nav>
         <ul>
             <li>Intro</li>
@@ -69,7 +81,7 @@
         </div>
         <div class="section yellow center">
             <h1>Skills</h2>
-            <p>My skills are rather limited. So instead of going on about how I specialis in "Microsoft Excel", I'll leav you with this video instead</p>
+            <p>My skills are rather limited. So instead of going on about how I specialis in "Microsoft Excel", I'll leave you with this video instead</p>
             <video width="80%" autoplay loop>
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -77,6 +89,13 @@
         </div>
         <div class="section red center">
             <h1>Contact</h2>
+                <ul class="contact">
+                    <li><a href="http://github.com/pranaygp" class="fa fa-github" aria-hidden="true"></a></li>
+                    <li><a href="http://fb.pranay.gp"  class="fa fa-facebook" aria-hidden="true"></a></li>
+                    <li><a href="http://twitter.com/pranaygp"  class="fa fa-twitter" aria-hidden="true"></a></li>
+                    <li><a href="http://linkedin.com/in/pranaygp"  class="fa fa-linkedin" aria-hidden="true"></a></li>
+                    <li id="modal-trigger">Open Modal</li>
+                </ul>
         </div>
     </div>
 

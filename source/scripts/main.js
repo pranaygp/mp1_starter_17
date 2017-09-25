@@ -5,7 +5,11 @@ const sections = document.querySelectorAll('.section');
 const caroussel = document.querySelector('.caroussel');
 const carousselSlides = caroussel.querySelectorAll('li');
 const carousselControls = caroussel.querySelectorAll('.controls');
-const video = document.querySelector('video');
+const videos = document.querySelectorAll('video');
+const modal = document.querySelector('#overlay');
+const modalTrigger = document.querySelector('#modal-trigger');
+const modalClose = document.querySelector('#modal-close');
+
 
 let currentCarrouselSlide = 0;
 const initialNavHeight = nav.clientHeight;
@@ -87,6 +91,15 @@ function navLinksClickHandler(e) {
   scrollTo(document.body, sectionScrollPositions[selectedSectionIndex] - navBarHeightAt(sectionScrollPositions[selectedSectionIndex]), 1000)
 }
 
+function modalTriggerClickHandler(e) {
+  modal.style.display = "block";
+}
+
+function modalCloseClickHandler(e) {
+  console.log("hello");
+  modal.style.display = "none";
+}
+
 function navBarHeightAt(scrollPos) {
   const progress =  Math.min(scrollPos/(window.innerHeight * 0.5), 1.0);
   return initialNavHeight - (0.5 * progress * initialNavHeight);
@@ -120,8 +133,13 @@ Math.easeInOutQuad = function (t, b, c, d) {
   return -c/2 * (t*(t-2) - 1) + b;
 };
 
-video.volume = 0;
+videos.forEach(vid => vid.volume = 0 )
 
 carousselControls.forEach(el => el.addEventListener('click', carousselClickHandler))
 
 navLinks.forEach(el => el.addEventListener('click', navLinksClickHandler))
+
+modalTrigger.addEventListener('click', modalTriggerClickHandler)
+
+modalClose.addEventListener('click', modalCloseClickHandler)
+

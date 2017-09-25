@@ -34,6 +34,29 @@ body {
   text-align: center;
 }
 
+#overlay {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: $green;
+
+  #modal-close {
+    cursor: pointer;
+    color: $white;
+    float: right;
+    font-size: 30px;
+    margin: 20px;
+  }
+}
+
+#modal-trigger {
+  cursor: pointer;
+}
+
 nav {
   height: 150px;
   width: 100vw;
@@ -176,7 +199,16 @@ nav {
     }
   }
 
+}
 
+.contact {
+  list-style: none;
+  font-size: 50px;
+  -webkit-padding-start: 0px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 @keyframes pulse {
