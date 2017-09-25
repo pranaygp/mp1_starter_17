@@ -5,6 +5,7 @@ const sections = document.querySelectorAll('.section');
 const caroussel = document.querySelector('.caroussel');
 const carousselSlides = caroussel.querySelectorAll('li');
 const carousselControls = caroussel.querySelectorAll('.controls');
+const video = document.querySelector('video');
 
 let currentCarrouselSlide = 0;
 const initialNavHeight = nav.clientHeight;
@@ -118,6 +119,8 @@ Math.easeInOutQuad = function (t, b, c, d) {
   t--;
   return -c/2 * (t*(t-2) - 1) + b;
 };
+
+video.volume = 0;
 
 carousselControls.forEach(el => el.addEventListener('click', carousselClickHandler))
 
