@@ -41,6 +41,7 @@ nav {
   background-color: $wash;
   position: fixed;
   top: 0;
+  z-index: 1;
   ul {
     float: right;
     list-style: none;
@@ -84,6 +85,9 @@ nav {
   &.yellow {
     background-color: $yellow;
   }
+  &.intro {
+    animation: pulse 5s infinite;
+  }
 
   .col {
     width: 33%;
@@ -108,11 +112,8 @@ nav {
   // width: 100%;
   position: relative;
   margin: 1em;
-  border: 1px solid #ccc;
   // overflow: hidden;
   height: 230px;
-
-  z-index: -1;
 
   #work1 {
     background: url('assets/facebook.png') no-repeat;
@@ -125,19 +126,21 @@ nav {
   }
   
   #work3 {
-    background: url('assets/cs196.png') no-repeat;
+    background: url('assets/cs196.png') no-repeat 20px 20px;
     background-size: contain;
   }
 
   ul {
-    width: 100%;
+    width: calc(100% - 100px);
     height: 100%;
     margin: 0px;
+    margin-left: 50px;
     list-style: none;
-    background-color: #fff;
+    background-color: $white;
     -webkit-padding-start: 0px; 
     overflow: hidden;
     li {
+      -webkit-transition: margin-top 2s;
       display: block;
       float: left;
       width: 100%;
@@ -155,11 +158,14 @@ nav {
   }
 
   .controls {
+    display: block;
+    width: 50px;
     position: absolute;
     font-size: 2em;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    color: $white;
 
     &#prev {
       left: 0px;
@@ -171,4 +177,22 @@ nav {
   }
 
 
+}
+
+@keyframes pulse {
+  0% {
+    background-color: $red;
+  }
+  25% {
+    background-color: $green;
+  }
+  50% {
+    background-color: $yellow;
+  }
+  75% {
+    background-color: $blue;
+  }
+  100% {
+    background-color: $red;
+  }
 }
